@@ -23,7 +23,6 @@ extension Date {
     
     func toDate_dMMMMyyyyString() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "ru_RU")
         dateFormatter.dateFormat = "d MMMM, yyyy"     //  9 February, 2018
         return dateFormatter.string(from: self)
     }
