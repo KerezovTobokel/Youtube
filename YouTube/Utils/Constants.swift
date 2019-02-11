@@ -12,4 +12,5 @@ class Constants: NSObject {
     
     static let MAIN_STORYBOARD = "Main"
     
+    static let TOTAL_LIMIT: Int = 60
 }

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 
 class SearchViewController: BaseViewController {
 
@@ -16,26 +15,36 @@ class SearchViewController: BaseViewController {
     
     var videoVM = VideoViewModel()
     var items = [Item]()
+    var textEncode: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupTableViewCell()
         self.setupSearchBar()
-        searchBarVideo.enablesReturnKeyAutomatically = true
+        self.setupTableViewCell()
+    }
+    
+    
+    func getVideo(text: String) {
+        self.videoVM.getVideos(text: text, onCompletion: { (items) in
+            self.items = items
+            DispatchQueue.main.async {
+                self.searchVideoTableView.reloadData()
+            }
+        }) { (error) in
+            print(error!)
+        }
+    }
+    
+    func getNextVideo(text: String) {
+        self.videoVM.getNextVideos(text: text, onCompletion: { (items) in
+            self.items = items
+        }) { (error) in
+            print(error!)
+        }
     }
     
     func setupTableViewCell() {
         self.searchVideoTableView.register(VideoTableViewCell.nib, forCellReuseIdentifier: VideoTableViewCell.identifier)
-    }
-    
-    func goWithText(text: String) {
-        self.videoVM.getListOfItems(searchText: text
-            , onCompletion: { (items) in
-                self.items = items
-                self.searchVideoTableView.reloadData()
-        }) { (error) in
-            print(error!)
-        }
     }
 }
 
@@ -45,6 +54,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource, UISe
         searchBarVideo.delegate = self
     }
     
+    // Table View
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
@@ -64,14 +74,28 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource, UISe
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == self.items.count - 1 {
+            if items.count < Constants.TOTAL_LIMIT {
+                if let encode = self.textEncode {
+                    self.getNextVideo(text: encode)
+                }
+                self.searchVideoTableView.reloadData()
+            }
+        }
+    }
+    
     // Search Bar
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard !searchText.isEmpty else {
-            return
-        }
-            let text = searchText.replacingOccurrences(of: " ", with: "")
-            self.goWithText(text: text)
+        guard !searchText.isEmpty else { return }
+        let text = searchText.replacingOccurrences(of: " ", with: "")
+        let encode = text.addingPercentEncoding(withAllowedCharacters: CharacterSet.alphanumerics
+            .union(CharacterSet.urlPathAllowed)
+            .union(CharacterSet.urlHostAllowed))
+        self.textEncode = encode
+        self.getVideo(text: encode!)
+        self.searchVideoTableView.reloadData()
     }
 }
 

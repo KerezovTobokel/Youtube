@@ -1,30 +1,3 @@
-PODS:
-  - Alamofire (4.8.1)
-  - ObjectMapper (3.4.2)
-  - SDWebImage (4.4.5):
-    - SDWebImage/Core (= 4.4.5)
-  - SDWebImage/Core (4.4.5)
-  - YouTubePlayer (0.4.0)
-
-DEPENDENCIES:
-  - Alamofire
-  - ObjectMapper
-  - SDWebImage
-  - YouTubePlayer
-
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - Alamofire
-    - ObjectMapper
-    - SDWebImage
-    - YouTubePlayer
-
-SPEC CHECKSUMS:
-  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
-  ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
-  SDWebImage: ecc03494e973b93b80213649d32175f8d2d17d4d
-  YouTubePlayer: 028451f6772f372d4759866db99824c676ac1473
-
-PODFILE CHECKSUM: 196c281f73451347f58e8393076a2e729b047cdb
+PODFILE CHECKSUM: 136f3d5ad281cdcaefec927598cb3c154aa24cd9
 
 COCOAPODS: 1.5.3

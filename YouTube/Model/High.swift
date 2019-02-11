@@ -7,16 +7,7 @@
 //
 
 import UIKit
-import ObjectMapper
 
-class High: NSObject, Mappable {
+class High: NSObject{
     var url: String = ""
-    
-    required convenience init?(map: Map) {
-        self.init()
-    }
-    
-    func mapping(map: Map) {
-        url <- map["url"]
-    }
 }

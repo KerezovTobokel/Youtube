@@ -7,23 +7,10 @@
 //
 
 import UIKit
-import ObjectMapper
 
-class Item: NSObject, Mappable {
+class Item: NSObject {
     var kind: String = ""
     var etag: String = ""
     var id: VideoId?
     var snippet: Snippet?
-    
-    required convenience init?(map: Map) {
-        self.init()
-    }
-    
-    func mapping(map: Map) {
-        kind <- map["kind"]
-        etag <- map["etag"]
-        id <- map["id"]
-        snippet <- map["snippet"]
-    }
-    
 }

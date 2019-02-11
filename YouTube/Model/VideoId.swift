@@ -7,18 +7,8 @@
 //
 
 import UIKit
-import ObjectMapper
 
-class VideoId: NSObject, Mappable {
+class VideoId: NSObject {
     var kind: String = ""
     var videoId: String = ""
-    
-    required convenience init?(map: Map) {
-        self.init()
-    }
-    
-    func mapping(map: Map) {
-        kind <- map["kind"]
-        videoId <- map["videoId"]
-    }
 }

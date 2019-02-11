@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SDWebImage
 
 class VideoTableViewCell: UITableViewCell {
 
@@ -15,6 +14,7 @@ class VideoTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    var videoVM = VideoViewModel()
     var item: Item?
     
     override func awakeFromNib() {
@@ -34,9 +34,16 @@ class VideoTableViewCell: UITableViewCell {
             self.titleLabel.text = snippet.title
             self.descriptionLabel.text = snippet.videoDescription
             if let url = snippet.thumbnails?.higher?.url {
-                self.imageVideoView.sd_setImage(with: URL(string: url), completed: nil)
+                self.getPhotos(photoCode: url)
             }
         }
     }
     
+    func getPhotos(photoCode: String) {
+        self.videoVM.getPhoto(photoCode: photoCode, onCompletion: { (images) in
+            self.imageVideoView.image = images
+        }) { (error) in
+            print(error!)
+        }
+    }
 }

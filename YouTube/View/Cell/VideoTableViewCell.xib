@@ -20,19 +20,20 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LFS-cX-ggD">
-                        <rect key="frame" x="12" y="12" width="113" height="75.5"/>
+                        <rect key="frame" x="12" y="4" width="120" height="92"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="113" id="Bj0-rr-xLt"/>
+                            <constraint firstAttribute="width" constant="120" id="Bj0-rr-xLt"/>
+                            <constraint firstAttribute="height" constant="92" id="Ls0-1c-oJe"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EGK-8f-irg">
-                        <rect key="frame" x="149" y="12" width="35.5" height="17"/>
+                        <rect key="frame" x="156" y="12" width="35.5" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bA2-Yd-sCf">
-                        <rect key="frame" x="149" y="37" width="31" height="14.5"/>
+                        <rect key="frame" x="156" y="37" width="31" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -41,8 +42,7 @@
                 <constraints>
                     <constraint firstItem="EGK-8f-irg" firstAttribute="leading" secondItem="LFS-cX-ggD" secondAttribute="trailing" constant="24" id="BUy-wM-B9L"/>
                     <constraint firstItem="bA2-Yd-sCf" firstAttribute="leading" secondItem="LFS-cX-ggD" secondAttribute="trailing" constant="24" id="ItR-CO-fj1"/>
-                    <constraint firstItem="LFS-cX-ggD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="LQz-1b-XH7"/>
-                    <constraint firstAttribute="bottom" secondItem="LFS-cX-ggD" secondAttribute="bottom" constant="12" id="NY0-h9-tuN"/>
+                    <constraint firstItem="LFS-cX-ggD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="LQz-1b-XH7"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="bA2-Yd-sCf" secondAttribute="bottom" constant="8" id="Uyf-P1-alf"/>
                     <constraint firstItem="EGK-8f-irg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="dKH-KD-XZy"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="EGK-8f-irg" secondAttribute="trailing" constant="8" id="iSv-jk-0Nl"/>

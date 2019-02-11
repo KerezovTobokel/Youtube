@@ -7,16 +7,7 @@
 //
 
 import UIKit
-import ObjectMapper
 
-class Thumbnail: NSObject, Mappable {
+class Thumbnail: NSObject {
     var higher: High?
-    
-    required convenience init?(map: Map) {
-        self.init()
-    }
-    
-    func mapping(map: Map) {
-        higher <- map["high"]
-    }
 }

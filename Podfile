@@ -6,8 +6,4 @@ target 'YouTube' do
 
   use_frameworks!
   # Pods for YouTube
-  pod 'Alamofire'
-  pod 'YouTubePlayer'
-  pod 'ObjectMapper'
-  pod 'SDWebImage'
 end
